@@ -1,0 +1,73 @@
+{
+    "Case Generation": {
+        "Random Settings": {
+            "Wave Height Range (m)": [2, 10],
+            "Wave Period Range (s/cycle)": [5, 50],
+            "Bouy Distance Range (m)": [25, 100],
+            "Wave Angle Range (°)": [0, 90],
+            "Count": 0
+        },
+        "Grid Settings": {
+            "Wave Height Samples (m)": [7],
+            "Wave Period Samples (s/cycle)": [20],
+            "Bouy Distance Samples (m)": [75],
+            "Wave Angle Samples (°)":[0]
+        }
+    },
+    "Simulation": {
+        "Simulation Duration": 60,
+        "Interparticle Distance": 1.5,
+
+        "Generate Case": true,
+        "Run Case": true,
+        "Generate Surface": true,
+        "Generate Elevation": true,
+        "Cull Output": false,
+
+        "Allow Continuation After Fail": false,
+
+        "Case Start": 1, // Inclusive, starts at 1
+        "Case End": 209, // Exclusive
+
+        "Buoy Top Z": 30.0, 
+        "Buoy Bot Z": 25.0,
+        "Damping": 100,
+        "Buoy Center": [125, 250],
+        "Sample Grid Neg X Offset": 125,
+        "Sample Grid Width": 500,
+        "Sample Grid Length": 500,
+        "Sample Grid Height": 100,
+        "Sample Grid Step": 5,
+        "Sample Grid VStep": 0.5
+    },
+    "Fit Model": {
+        "Subsample Slice": {
+            "x": [15, 65],
+            "y": [25, 75]
+        },
+        "Model": {
+            "in_size": 4,
+            "hidden_channel": 10,
+            "hidden_channel_2": 20,
+            "hidden_channel_3": 40,
+            "hidden_size": 3,
+            "kernel_1": 10,
+            "kernel_2": 20,
+            "kernel_3": 20
+        },
+        "Training": {
+            "Folds": 20,
+            "Learning Rate": 0.001,
+            "Training Epochs": 20000
+        }
+    },
+    "Predict": {
+        "Mooring Range": {
+            "x": [15, 50],
+            "y": [10, 40]
+        },
+        "Minimum Spacing (m)": 10,
+        "Startup Cost (Units of Wave Height Standard Deviations)": 2,
+        "Move Cost (Wave Height Standard Deviations/grid step)": 0.1
+    }
+}
